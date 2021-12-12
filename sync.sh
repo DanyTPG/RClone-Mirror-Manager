@@ -3,6 +3,7 @@ rclone --config rclone.conf lsf D1:Archive/Unsorted/ > list
 
 cat list | grep  Mushoku.*\.mkv >> Mushoku
 cat list | grep  Kimetsu.*\.mkv >> Kimetsu
+cat list | grep  Demon.*\.mkv >> Demon
 cat list | grep  Blade.*720.*mkv >> Blade720
 cat list | grep  Blade.*1080.*mkv >> Blade1080
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
@@ -26,12 +27,13 @@ for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Wheel720 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [720p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Wheel1080 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [1080p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
-for i in $(cat Mushoku | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Mushoku Tensei/" --drive-server-side-across-configs ; done
-for i in $(cat Kimetsu | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/" --drive-server-side-across-configs ; done
+for i in $(cat Mushoku | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Mushoku Tensei/[Judas] Mushoku Tensei - Isekai Ittara Honki Dasu (Season 1) [1080p][HEVC x265 10bit][Multi-Subs]/" --drive-server-side-across-configs ; done
+for i in $(cat Kimetsu | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[Judas] Kimetsu no Yaiba (Season 2) [BD 1080p][HEVC x265 10bit][Dual-Audio][Multi-Subs]/" --drive-server-side-across-configs ; done
+for i in $(cat Demon | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[PSA] Kimetsu no Yaiba (Season 2) [WEBRip 1080p][HEVC x265 10bit]/" --drive-server-side-across-configs ; done
 for i in $(cat Dexter720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Dexter1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/1080p/"  --drive-server-side-across-configs ; done
 
-rm Mushoku Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Hawk1080 Hawk720 Hawk2160 Blade720 Blade1080
+rm Mushoku Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Hawk1080 Hawk720 Hawk2160 Blade720 Blade1080 Demon
 
 ##########################################################################################################################################
 ##########################################################################################################################################
