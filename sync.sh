@@ -12,17 +12,17 @@ cat list | grep  Wheel.*720.*mkv >> Wheel720
 cat list | grep  Wheel.*1080.*mkv >> Wheel1080
 cat list | grep  Dexter.*720p.*\.mkv >> Dexter720
 cat list | grep  Dexter.*1080p.*\.mkv >> Dexter1080
-#cat list | grep Hawkeye.*720p.*\.mkv >> Hawk720
-#cat list | grep Hawkeye.*1080p.*\.mkv >> Hawk1080
-#cat list | grep Hawkeye.*2160p.*\.mkv >> Hawk2160
+cat list | grep Expanse.*720p.*\.mkv >> Expanse720
+cat list | grep Expanse.*1080p.*\.mkv >> Expanse1080
+cat list | grep Expanse.*2160p.*\.mkv >> Expanse2160
 
 IFS=$'\n'
 
 for i in $(cat Blade720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
 for i in $(cat Blade1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
-#for i in $(cat Hawk720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Hawkeye/Season 1 [x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
-#for i in $(cat Hawk1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Hawkeye/Season 1 [x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
-#for i in $(cat Hawk2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Hawkeye/Season 1 [x265 10bit WEBRip PSA]/2160p/" --drive-server-side-across-configs ; done
+for i in $(cat Expanse720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [720p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
+for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [1080p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
+for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (720p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Wheel720 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [720p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
@@ -33,7 +33,7 @@ for i in $(cat Kimetsu | uniq) ; do rclone --config rclone.conf move -P D1:Archi
 for i in $(cat Dexter720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Dexter1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/1080p/"  --drive-server-side-across-configs ; done
 
-rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon
+rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Expanse2160 Expanse1080 Expanse720
 
 ##########################################################################################################################################
 ##########################################################################################################################################
