@@ -8,6 +8,7 @@ cat list | grep  Blade.*720.*mkv >> Blade720
 cat list | grep  Blade.*1080.*mkv >> Blade1080
 cat list | grep  Boba.*720.*mkv >> Boba720
 cat list | grep  Boba.*1080.*mkv >> Boba1080
+cat list | grep  Boba.*2160.*mkv >> Boba2160
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
 cat list | grep  Legacies.*720.*mkv >> Legacies720
 cat list | grep  Wheel.*720.*mkv >> Wheel720
@@ -22,8 +23,9 @@ IFS=$'\n'
 
 for i in $(cat Blade720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
 for i in $(cat Blade1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
-for i in $(cat Boba720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080 x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
-for i in $(cat Boba1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080 x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
+for i in $(cat Boba720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
+for i in $(cat Boba1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
+for i in $(cat Boba2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/2160p/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [720p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [1080p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
