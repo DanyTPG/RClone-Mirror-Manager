@@ -11,8 +11,8 @@ cat list | grep  Boba.*1080.*mkv >> Boba1080
 cat list | grep  Boba.*2160.*mkv >> Boba2160
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
 cat list | grep  Legacies.*720.*mkv >> Legacies720
-cat list | grep  Wheel.*720.*mkv >> Wheel720
-cat list | grep  Wheel.*1080.*mkv >> Wheel1080
+#cat list | grep  Wheel.*720.*mkv >> Wheel720
+#cat list | grep  Wheel.*1080.*mkv >> Wheel1080
 cat list | grep  Dexter.*720p.*\.mkv >> Dexter720
 cat list | grep  Dexter.*1080p.*\.mkv >> Dexter1080
 cat list | grep Expanse.*720p.*\.mkv >> Expanse720
@@ -31,8 +31,8 @@ for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (720p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
-for i in $(cat Wheel720 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [720p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
-for i in $(cat Wheel1080 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [1080p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
+#for i in $(cat Wheel720 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [720p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
+#for i in $(cat Wheel1080 | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Wheel of Time/Season 1 [1080p x265 10bit WEBRip PSA]/" --drive-server-side-across-configs ; done
 #for i in $(cat Mushoku | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Mushoku Tensei/[Judas] Mushoku Tensei - Isekai Ittara Honki Dasu (Season 1) [1080p][HEVC x265 10bit][Multi-Subs]/" --drive-server-side-across-configs ; done
 for i in $(cat Demon | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[PSA] Kimetsu no Yaiba (Season 3) [WEBRip 1080p][HEVC x265 10bit]/" --drive-server-side-across-configs ; done
 for i in $(cat Kimetsu | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[Judas] Kimetsu no Yaiba (Season 3) [BD 1080p][HEVC x265 10bit][Dual-Audio][Multi-Subs]/" --drive-server-side-across-configs ; done
