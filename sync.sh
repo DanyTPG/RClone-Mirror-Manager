@@ -59,11 +59,11 @@ rm p p1440 list
 rclone --config rclone.conf sync  D1:Archive D2:Archive --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D1:Archive D3:Archive --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D1:Archive D4:Archive --drive-server-side-across-configs --checksum
-#rclone --config rclone.conf sync  D1:Archive D5:Archive --drive-server-side-across-configs --checksum
+rclone --config rclone.conf sync  D1:Archive D5:Archive --drive-server-side-across-configs --checksum
 #rclone --config rclone.conf sync  D1:Archive D6:Archive --drive-server-side-across-configs
 #rclone --config rclone.conf sync  D6:Folder D2:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D3:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D4:Folder --drive-server-side-across-configs --checksum
-#rclone --config rclone.conf sync  D6:Folder D5:Folder --drive-server-side-across-configs --checksum
+rclone --config rclone.conf sync  D6:Folder D5:Folder --drive-server-side-across-configs --checksum
 
 date
