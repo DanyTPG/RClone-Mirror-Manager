@@ -45,7 +45,7 @@ for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:
 
 
 
-rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Expanse2160 Expanse1080 Expanse720 Boba720 Boba1080 AttackPSA AttackJudas
+rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Expanse2160 Expanse1080 Expanse720 Boba720 Boba1080 AttackPSA AttackJudas Superman720 Superman1080
 
 ##########################################################################################################################################
 ##########################################################################################################################################
