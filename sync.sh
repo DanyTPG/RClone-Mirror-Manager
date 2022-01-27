@@ -20,6 +20,8 @@ cat list | grep Expanse.*1080p.*\.mkv >> Expanse1080
 cat list | grep Expanse.*2160p.*\.mkv >> Expanse2160
 cat list | grep  Superman.*720p.*\.mkv >> Superman720
 cat list | grep  Superman.*1080p.*\.mkv >> Superman1080
+cat list | grep  Snowpiercer.S03.*720p.*\.mkv >> Snowpiercer720
+cat list | grep  Snowpiercer.S03.*1080p.*\.mkv >> Snowpiercer1080
 cat list | grep  Peacemaker.*720p.*\.mkv >> Peacemaker720
 cat list | grep  Peacemaker.*1080p.*\.mkv >> Peacemaker1080
 
@@ -44,6 +46,8 @@ for i in $(cat Dexter720 | uniq) ; do rclone --config rclone.conf move -P D1:Arc
 for i in $(cat Dexter1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
+for i in $(cat Snowpiercer720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Snowpiercer/Season 1-2-3 [x265 10bit PSA]/Season 3/720p/"  --drive-server-side-across-configs ; done
+for i in $(cat Snowpiercer1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Snowpiercer/Season 1-2-3 [x265 10bit PSA]/Season 3/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Peacemaker720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Peacemaker1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 
