@@ -49,7 +49,7 @@ for i in $(cat Snowpiercer720 | uniq) ; do rclone --config rclone.conf move -P D
 for i in $(cat Snowpiercer1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Snowpiercer/Season 1-2-3 [x265 10bit PSA]/Season 3/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Peacemaker720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Peacemaker1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Vox | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Legend of Vox Machina/"
+for i in $(cat Vox | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Legend of Vox Machina/" --drive-server-side-across-configs ; done
 
 
 rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080
