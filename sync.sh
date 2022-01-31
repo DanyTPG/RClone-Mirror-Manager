@@ -52,7 +52,7 @@ for i in $(cat Peacemaker1080 | uniq) ; do rclone --config rclone.conf move -P D
 for i in $(cat Vox | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Legend of Vox Machina/" --drive-server-side-across-configs ; done
 
 
-rm Kimetsu Legacies720 Legacies1080 Wheel720 Wheel1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080
+rm Kimetsu Legacies720 Legacies1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080
 rm Expanse2160 Expanse1080 Expanse720 Boba720 Boba1080 AttackPSA AttackJudas Superman720 Superman1080 Vox
 
 ##########################################################################################################################################
