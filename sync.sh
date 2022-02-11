@@ -24,6 +24,8 @@ cat list | grep  Snowpiercer.S03.*1080p.*\.mkv >> Snowpiercer1080
 cat list | grep  Peacemaker.*720p.*\.mkv >> Peacemaker720
 cat list | grep  Peacemaker.*1080p.*\.mkv >> Peacemaker1080
 cat list | grep  Vox.*mkv >> Vox
+cat list | grep  Father.*720p.*\.mkv >> Father720
+cat list | grep  Father.*1080p.*\.mkv >> Father1080
 
 IFS=$'\n'
 
@@ -50,9 +52,11 @@ for i in $(cat Snowpiercer1080 | uniq) ; do rclone --config rclone.conf move -P 
 for i in $(cat Peacemaker720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Peacemaker1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Vox | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Legend of Vox Machina/" --drive-server-side-across-configs ; done
+for i in $(cat Father720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/720p/"  --drive-server-side-across-configs ; done
+for i in $(cat Father1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/1080p/"  --drive-server-side-across-configs ; done
 
 
-rm Kimetsu Legacies720 Legacies1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080
+rm Kimetsu Legacies720 Legacies1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080 Father720 Father1080
 rm Expanse2160 Expanse1080 Expanse720 Boba720 Boba1080 AttackPSA AttackJudas Superman720 Superman1080 Vox
 
 ##########################################################################################################################################
