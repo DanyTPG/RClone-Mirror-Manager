@@ -1,13 +1,8 @@
 #!/bin/bash
 rclone --config rclone.conf lsf D1:Archive/Unsorted/ > list
 
-cat list | grep  Kimetsu.*\.mkv >> Kimetsu
-cat list | grep  Demon.*\.mkv >> Demon
-cat list | grep  Blade.*720.*mkv >> Blade720
-cat list | grep  Blade.*1080.*mkv >> Blade1080
-cat list | grep  Boba.*720.*mkv >> Boba720
-cat list | grep  Boba.*1080.*mkv >> Boba1080
-cat list | grep  Boba.*2160.*mkv >> Boba2160
+cat list | grep  Maisel.*720p.*\.mkv >> Maisel720
+cat list | grep  Maisel.*1080p.*\.mkv >> Maisel1080
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
 cat list | grep  Legacies.*720.*mkv >> Legacies720
 cat list | grep  Attack.*PSA.*mkv >> AttackPSA
@@ -21,19 +16,11 @@ cat list | grep  Superman.*720p.*\.mkv >> Superman720
 cat list | grep  Superman.*1080p.*\.mkv >> Superman1080
 cat list | grep  Snowpiercer.S03.*720p.*\.mkv >> Snowpiercer720
 cat list | grep  Snowpiercer.S03.*1080p.*\.mkv >> Snowpiercer1080
-cat list | grep  Peacemaker.*720p.*\.mkv >> Peacemaker720
-cat list | grep  Peacemaker.*1080p.*\.mkv >> Peacemaker1080
-cat list | grep  Vox.*mkv >> Vox
 cat list | grep  Father.*720p.*\.mkv >> Father720
 cat list | grep  Father.*1080p.*\.mkv >> Father1080
 
 IFS=$'\n'
 
-for i in $(cat Blade720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
-for i in $(cat Blade1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Blade Runner: Black Lotus/Season 1 [x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
-for i in $(cat Boba720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/720p/" --drive-server-side-across-configs ; done
-for i in $(cat Boba1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/1080p/" --drive-server-side-across-configs ; done
-for i in $(cat Boba2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Book of Boba Fett/Season 1 [720-1080-2160 x265 10bit WEBRip PSA]/2160p/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [720p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [1080p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
@@ -41,23 +28,20 @@ for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat AttackPSA | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/PSA/" --drive-server-side-across-configs ; done
 for i in $(cat AttackJudas | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/Judas/" --drive-server-side-across-configs ; done
-for i in $(cat Demon | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[PSA] Kimetsu no Yaiba (Season 3) [WEBRip 1080p][HEVC x265 10bit]/" --drive-server-side-across-configs ; done
-for i in $(cat Kimetsu | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Demon Slayer (Kimetsu no Yaiba)/[Judas] Kimetsu no Yaiba (Season 3) [BD 1080p][HEVC x265 10bit][Dual-Audio][Multi-Subs]/" --drive-server-side-across-configs ; done
 for i in $(cat Dexter720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Dexter1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Snowpiercer720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Snowpiercer/Season 1-2-3 [x265 10bit PSA]/Season 3/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Snowpiercer1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Snowpiercer/Season 1-2-3 [x265 10bit PSA]/Season 3/1080p/"  --drive-server-side-across-configs ; done
-for i in $(cat Peacemaker720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Peacemaker1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peacemaker/Season 1 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Vox | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Legend of Vox Machina/" --drive-server-side-across-configs ; done
+for i in $(cat Maisel720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Marvelous Mrs. Maisel/Season 4 [PSA]/720p/"  --drive-server-side-across-configs ; done
+for i in $(cat Maisel1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Marvelous Mrs. Maisel/Season 4 [PSA]/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Father720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Father1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/1080p/"  --drive-server-side-across-configs ; done
 
 
-rm Kimetsu Legacies720 Legacies1080 Dexter720 Dexter1080 Blade720 Blade1080 Demon Peacemaker720 Peacemaker1080 Father720 Father1080
-rm Expanse2160 Expanse1080 Expanse720 Boba720 Boba1080 AttackPSA AttackJudas Superman720 Superman1080 Vox
+rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080
+rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080
 
 ##########################################################################################################################################
 ##########################################################################################################################################
