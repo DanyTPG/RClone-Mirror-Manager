@@ -47,6 +47,7 @@ rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman
 ##########################################################################################################################################
 touch p p1440
 cat list | grep 1440p.mp4 >> p1440
+cat list | grep 2160p.mp4 >> p1440
 for i in $(cat p1440 | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/2K --drive-server-side-across-configs; done
 for i in $(cat p1440 | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
 
