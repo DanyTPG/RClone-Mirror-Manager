@@ -1,6 +1,8 @@
 #!/bin/bash
 rclone --config rclone.conf lsf D1:Archive/Unsorted/ > list
 
+cat list | grep  Eve.*720p.*\.mkv >> Eve720
+cat list | grep  Eve.*1080p.*\.mkv >> Eve1080
 cat list | grep  Maisel.*720p.*\.mkv >> Maisel720
 cat list | grep  Maisel.*1080p.*\.mkv >> Maisel1080
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
@@ -38,7 +40,8 @@ for i in $(cat Maisel720 | uniq) ; do rclone --config rclone.conf move -P D1:Arc
 for i in $(cat Maisel1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Marvelous Mrs. Maisel/Season 4 [PSA]/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Father720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Father1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/1080p/"  --drive-server-side-across-configs ; done
-
+for i in $(cat Eve720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/720p/"  --drive-server-side-across-configs ; done
+for i in $(cat Eve1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/1080p/"  --drive-server-side-across-configs ; done
 
 rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080
 rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080
