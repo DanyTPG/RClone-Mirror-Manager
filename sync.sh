@@ -43,7 +43,7 @@ for i in $(cat Father1080 | uniq) ; do rclone --config rclone.conf move -P D1:Ar
 for i in $(cat Eve720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Eve1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/1080p/"  --drive-server-side-across-configs ; done
 
-rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080
+rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080
 rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080
 
 ##########################################################################################################################################
