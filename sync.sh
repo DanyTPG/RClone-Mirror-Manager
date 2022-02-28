@@ -1,6 +1,9 @@
 #!/bin/bash
-rclone --config rclone.conf lsf D1:Archive/Unsorted/ > list
-
+rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
+cat list | grep  Peaky.*720p.*\.mkv >> Peaky720
+cat list | grep  Peaky.*1080p.*PSA\.mkv >> Peaky1080x
+cat list | grep  Peaky.*1080p.*264.*\.mkv >> Peaky1080
+cat list | grep  Peaky.*2160p.*\.mkv >> Peaky2160
 cat list | grep  Eve.*720p.*\.mkv >> Eve720
 cat list | grep  Eve.*1080p.*\.mkv >> Eve1080
 cat list | grep  Maisel.*720p.*\.mkv >> Maisel720
@@ -42,10 +45,17 @@ for i in $(cat Father720 | uniq) ; do rclone --config rclone.conf move -P D1:Arc
 for i in $(cat Father1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/How I Met Your Father/Season 1 [720-1080 x265 10bit PSA]/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Eve720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Eve1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/1080p/"  --drive-server-side-across-configs ; done
+for i in $(cat Peaky720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/720p x265 PSA/"  --drive-server-side-across-configs ; done
+for i in $(cat Peaky1080x | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/1080p x265 10bit PSA/"  --drive-server-side-across-configs ; done
+for i in $(cat Peaky1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/1080p/"  --drive-server-side-across-configs ; done
+for i in $(cat Peaky2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/4K 2160p/"  --drive-server-side-across-configs ; done
+
 
 rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080
-rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080
+rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
 
+for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
+rclone --config rclone.conf rmdirs D1:Archive/Unsorted/
 ##########################################################################################################################################
 ##########################################################################################################################################
 touch p p1440
@@ -55,7 +65,6 @@ for i in $(cat p1440 | uniq); do rclone --config rclone.conf copy D1:Archive/Uns
 for i in $(cat p1440 | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
 
 cat list | grep XXX >> p
-cat list | grep PRT >> p
 
 for i in $(cat p | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/premium --drive-server-side-across-configs; done
 for i in $(cat p | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
