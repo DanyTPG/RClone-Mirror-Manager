@@ -55,7 +55,7 @@ rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 
 rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
-rclone --config rclone.conf rmdirs D1:Archive/Unsorted/
+
 ##########################################################################################################################################
 ##########################################################################################################################################
 touch p p1440
