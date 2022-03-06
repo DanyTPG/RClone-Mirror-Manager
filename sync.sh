@@ -1,6 +1,7 @@
 #!/bin/bash
 rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
 cat list | grep \\[SubsPlease\\].*Sono.*\.mkv > Sono
+cat list | grep \\[SubsPlease\\].*Shingeki.*\.mkv > subsAttack
 cat list | grep  Peaky.*720p.*\.mkv >> Peaky720
 cat list | grep  Peaky.*1080p.*PSA\.mkv >> Peaky1080x
 cat list | grep  Peaky.*1080p.*264.*\.mkv >> Peaky1080
@@ -32,6 +33,7 @@ for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (720p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
+for i in $(cat subsAttack | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/SubsPlease/" --drive-server-side-across-configs ; done
 for i in $(cat AttackPSA | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/PSA/" --drive-server-side-across-configs ; done
 for i in $(cat AttackJudas | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/Judas/" --drive-server-side-across-configs ; done
 for i in $(cat Dexter720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Dexter New Blood/Season 1 [x265 10bit WEBRip PSA]/720p/"  --drive-server-side-across-configs ; done
@@ -52,7 +54,7 @@ for i in $(cat Peaky1080 | uniq) ; do rclone --config rclone.conf move -P D1:Arc
 for i in $(cat Peaky2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/4K 2160p/"  --drive-server-side-across-configs ; done
 
 
-rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080 Sono
+rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080 Sono subsAttack
 rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
