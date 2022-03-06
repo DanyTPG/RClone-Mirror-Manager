@@ -1,5 +1,6 @@
 #!/bin/bash
 rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
+cat list | grep \\[SubsPlease\\].*Sono.*\.mkv > Sono
 cat list | grep  Peaky.*720p.*\.mkv >> Peaky720
 cat list | grep  Peaky.*1080p.*PSA\.mkv >> Peaky1080x
 cat list | grep  Peaky.*1080p.*264.*\.mkv >> Peaky1080
@@ -25,7 +26,7 @@ cat list | grep  Father.*720p.*\.mkv >> Father720
 cat list | grep  Father.*1080p.*\.mkv >> Father1080
 
 IFS=$'\n'
-
+for i in $(cat Sono | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/My Dress-Up Darling (Sono Bisque Doll wa Koi wo Suru)/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [720p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [1080p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
 for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
@@ -51,7 +52,7 @@ for i in $(cat Peaky1080 | uniq) ; do rclone --config rclone.conf move -P D1:Arc
 for i in $(cat Peaky2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Peaky Blinders/Season 6/4K 2160p/"  --drive-server-side-across-configs ; done
 
 
-rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080
+rm Legacies720 Legacies1080 Dexter720 Dexter1080 Father720 Father1080 Maisel720 Maisel1080 Eve720 Eve1080 Sono
 rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
