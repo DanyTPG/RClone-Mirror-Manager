@@ -16,9 +16,9 @@ cat list | grep  Attack.*PSA.*mkv >> AttackPSA
 cat list | grep  Judas.*Attack.*mkv >> AttackJudas
 cat list | grep  Dexter.*720p.*\.mkv >> Dexter720
 cat list | grep  Dexter.*1080p.*\.mkv >> Dexter1080
-cat list | grep Expanse.*720p.*\.mkv >> Expanse720
-cat list | grep Expanse.*1080p.*\.mkv >> Expanse1080
-cat list | grep Expanse.*2160p.*\.mkv >> Expanse2160
+cat list | grep Moon.*720p.*\.mkv >> Moon720
+cat list | grep Moon.*1080p.*\.mkv >> Moon1080
+cat list | grep Moon.*2160p.*\.mkv >> Moon2160
 cat list | grep  Superman.*720p.*\.mkv >> Superman720
 cat list | grep  Superman.*1080p.*\.mkv >> Superman1080
 cat list | grep  Snowpiercer.S03.*720p.*\.mkv >> Snowpiercer720
@@ -26,9 +26,9 @@ cat list | grep  Snowpiercer.S03.*1080p.*\.mkv >> Snowpiercer1080
 
 
 IFS=$'\n'
-for i in $(cat Expanse720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [720p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
-for i in $(cat Expanse1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [1080p WEBRip x265 10bit PSA]/" --drive-server-side-across-configs ; done
-for i in $(cat Expanse2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/The Expanse/The Expanse Season 6 [2160p HDR10Plus WEBRip x265 PSA]/" --drive-server-side-across-configs ; done
+for i in $(cat Moon720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/720p/" --drive-server-side-across-configs ; done
+for i in $(cat Moon1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/1080p/" --drive-server-side-across-configs ; done
+for i in $(cat Moon2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/2160p/" --drive-server-side-across-configs ; done
 for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (720p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat subsAttack | uniq) ; do rclone --config rclone.conf move  -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Attack on Titan/Season 4/SubsPlease/" --drive-server-side-across-configs ; done
@@ -49,7 +49,7 @@ for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Arch
 for i in $(cat Halo2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/2160p/"  --drive-server-side-across-configs ; done
 
 rm Legacies720 Legacies1080  Eve720 Eve1080 subsAttack Halo720 Halo1080 Halo2160
-rm Expanse2160 Expanse1080 Expanse720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
+rm Moon2160 Moon1080 Moon720 AttackPSA AttackJudas Superman720 Superman1080 Peaky720 Peaky1080x Peaky1080 Peaky2160
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
 
