@@ -3,8 +3,7 @@ rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
 #cat list | grep \\[SubsPlease\\].*Shingeki.*\.mkv > subsAttack
 
 
-cat list | grep  Eve.*720p.*\.mkv >> Eve720
-cat list | grep  Eve.*1080p.*\.mkv >> Eve1080
+
 cat list | grep  Halo.*720p.*\.mkv >> Halo720
 cat list | grep  Halo.*1080p.*\.mkv >> Halo1080
 cat list | grep  Halo.*2160p.*\.mkv >> Halo2160
@@ -26,13 +25,11 @@ for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Eve720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/720p/"  --drive-server-side-across-configs ; done
-for i in $(cat Eve1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Killing Eve/Season 4/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Halo2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/2160p/"  --drive-server-side-across-configs ; done
 
-rm Legacies720 Legacies1080  Eve720 Eve1080 Halo720 Halo1080 Halo2160
+rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160
 rm Moon2160 Moon1080 Moon720 Superman720 Superman1080 
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
