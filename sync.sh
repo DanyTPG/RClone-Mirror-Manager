@@ -29,8 +29,8 @@ for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:
 for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/720p/"  --drive-server-side-across-configs ; done
 for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/1080p/"  --drive-server-side-across-configs ; done
 for i in $(cat Halo2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/2160p/"  --drive-server-side-across-configs ; done
-for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/720p [PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/1080p [PSA]/"  --drive-server-side-across-configs ; done
+for i in $(cat Saul720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/720p [PSA]/"  --drive-server-side-across-configs ; done
+for i in $(cat Saul1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/1080p [PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat spy | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Spy x Family/Season 1/"  --drive-server-side-across-configs ; done
 
 
