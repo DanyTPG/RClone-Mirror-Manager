@@ -36,7 +36,7 @@ for i in $(cat spy | uniq) ; do rclone --config rclone.conf move -P D1:Archive/U
 
 
 
-rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080
+rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080 spy
 rm Moon2160 Moon1080 Moon720 Superman720 Superman1080 
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
