@@ -2,8 +2,9 @@
 rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
 #cat list | grep \\[SubsPlease\\].*Shingeki.*\.mkv > subsAttack
 
-
-
+cat list | grep \\[Judas\\].*Spy.*\.mkv > spy
+cat list | grep  Saul.*720p.*\.mkv >> Saul720
+cat list | grep  Saul.*1080p.*\.mkv >> Saul1080
 cat list | grep  Halo.*720p.*\.mkv >> Halo720
 cat list | grep  Halo.*1080p.*\.mkv >> Halo1080
 cat list | grep  Halo.*2160p.*\.mkv >> Halo2160
@@ -25,11 +26,17 @@ for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:A
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [1080p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
-for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/720p/"  --drive-server-side-across-configs ; done
-for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/1080p/"  --drive-server-side-across-configs ; done
-for i in $(cat Halo2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/2160p/"  --drive-server-side-across-configs ; done
+for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/720p/"  --drive-server-side-across-configs ; done
+for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/1080p/"  --drive-server-side-across-configs ; done
+for i in $(cat Halo2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Halo/Season 1/2160p/"  --drive-server-side-across-configs ; done
+for i in $(cat Halo720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/720p [PSA]/"  --drive-server-side-across-configs ; done
+for i in $(cat Halo1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Better Call Saul/Season 6/1080p [PSA]/"  --drive-server-side-across-configs ; done
+for i in $(cat spy | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Anime/Spy x Family/Season 1/"  --drive-server-side-across-configs ; done
 
-rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160
+
+
+
+rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080
 rm Moon2160 Moon1080 Moon720 Superman720 Superman1080 
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
