@@ -16,7 +16,9 @@ cat list | grep Moon.*2160p.*\.mkv >> Moon2160
 cat list | grep  Superman.*720p.*\.mkv >> Superman720
 cat list | grep  Superman.*1080p.*\.mkv >> Superman1080
 
+UPDATED=$(cat spy Saul720 Saul1080 Halo720 Halo1080 Halo2160 Legacies1080 Legacies720 Moon720 Moon1080 Moon2160 Superman720 Superman1080 | grep . -c)
 
+if [ $UPDATED != 0 ]; then
 
 IFS=$'\n'
 for i in $(cat Moon720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/720p/" --drive-server-side-across-configs ; done
@@ -36,31 +38,40 @@ for i in $(cat spy | uniq) ; do rclone --config rclone.conf move -P D1:Archive/U
 
 
 
-rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080 spy
-rm Moon2160 Moon1080 Moon720 Superman720 Superman1080 
+rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080 Moon2160 Moon1080 Moon720 Superman720 Superman1080 spy
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
-
-##########################################################################################################################################
-##########################################################################################################################################
-touch p p1440
-cat list | grep 1440p.mp4 >> p1440
-cat list | grep 2160p.mp4 >> p1440
-for i in $(cat p1440 | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/2K --drive-server-side-across-configs; done
-for i in $(cat p1440 | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
-
-cat list | grep XXX >> p
-
-for i in $(cat p | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/premium --drive-server-side-across-configs; done
-for i in $(cat p | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
-rm p p1440 list
 
 rclone --config rclone.conf sync  D1:Archive D2:Archive --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D1:Archive D3:Archive --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D1:Archive D4:Archive --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D1:Archive D5:Archive --drive-server-side-across-configs --checksum
 #rclone --config rclone.conf sync  D1:Archive D6:Archive --drive-server-side-across-configs
+
+fi
+
+##########################################################################################################################################
+##########################################################################################################################################
+
+cat list | grep 1440p.mp4 >> p1440
+cat list | grep 2160p.mp4 >> p1440
+cat list | grep XXX >> p
+
+UPDATED=$(cat p p1440 | grep . -c)
+
+if [ $UPDATED != 0 ]; then
+
+for i in $(cat p1440 | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/2K --drive-server-side-across-configs; done
+for i in $(cat p1440 | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
+
+for i in $(cat p | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/premium --drive-server-side-across-configs; done
+for i in $(cat p | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
+rm p p1440 list
+
+
 #rclone --config rclone.conf sync  D6:Folder D2:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D3:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D4:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D5:Folder --drive-server-side-across-configs --checksum
+
+fi
