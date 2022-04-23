@@ -70,7 +70,7 @@ rm p p1440 list
 
 
 #rclone --config rclone.conf sync  D6:Folder D2:Folder --drive-server-side-across-configs --checksum
-rclone --config rclone.conf sync  D6:Folder D3:Folder --drive-server-side-across-configs --checksum
+#rclone --config rclone.conf sync  D6:Folder D3:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D4:Folder --drive-server-side-across-configs --checksum
 rclone --config rclone.conf sync  D6:Folder D5:Folder --drive-server-side-across-configs --checksum
 
