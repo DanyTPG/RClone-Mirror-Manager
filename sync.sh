@@ -3,9 +3,9 @@ rclone --config rclone.conf lsf D1:Archive/Unsorted/ -R > list
 #cat list | grep \\[SubsPlease\\].*Shingeki.*\.mkv > subsAttack
 
 cat list | grep \\[Judas\\].*Spy.*\.mkv > spy
-cat list | grep  Saul.*720p.*\.mkv >> Saul720
-cat list | grep  Saul.*1080p.*\.mkv >> Saul1080
-cat list | grep  Saul.*2160p.*\.mkv >> Saul2160
+#cat list | grep  Saul.*720p.*\.mkv >> Saul720
+#cat list | grep  Saul.*1080p.*\.mkv >> Saul1080
+#cat list | grep  Saul.*2160p.*\.mkv >> Saul2160
 cat list | grep  Halo.*720p.*\.mkv >> Halo720
 cat list | grep  Halo.*1080p.*\.mkv >> Halo1080
 cat list | grep  Halo.*2160p.*\.mkv >> Halo2160
