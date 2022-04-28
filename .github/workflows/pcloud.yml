@@ -1,0 +1,25 @@
+name: pCloud
+on:
+  workflow_dispatch:
+jobs:
+  run-sync-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install RClone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+          rclone help
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+      - name: Downloading config file
+        run: |
+          wget ${{ secrets.CONF_URL }} -O rclone.conf
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Give execute permission
+        run: |
+          chmod +x pcloud.sh
+      - name: Start sync
+        run: |
+          bash pcloud.sh
