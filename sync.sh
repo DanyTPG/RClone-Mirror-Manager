@@ -67,6 +67,7 @@ UPDATED=$(cat p p1440 | grep . -c)
 
 if [ $UPDATED != 0 ]; then
 
+IFS=$'\n'
 for i in $(cat p1440 | uniq); do rclone --config rclone.conf copy D1:Archive/Unsorted/"$i" D6:Folder/PH/2K --drive-server-side-across-configs; done
 for i in $(cat p1440 | uniq); do rclone --config rclone.conf delete D1:Archive/Unsorted/"$i" ; done
 
