@@ -11,22 +11,16 @@ cat list | grep  Halo.*1080p.*\.mkv >> Halo1080
 cat list | grep  Halo.*2160p.*\.mkv >> Halo2160
 cat list | grep  Legacies.*1080.*mkv >> Legacies1080
 cat list | grep  Legacies.*720.*mkv >> Legacies720
-cat list | grep Moon.*720p.*\.mkv >> Moon720
-cat list | grep Moon.*1080p.*\.mkv >> Moon1080
-cat list | grep Moon.*2160p.*\.mkv >> Moon2160
 cat list | grep  Superman.*720p.*\.mkv >> Superman720
 cat list | grep  Superman.*1080p.*\.mkv >> Superman1080
 cat list | grep  Barry.S03.*720p.*\.mkv >> Barry720
 cat list | grep  Barry.S03.*1080p.*\.mkv >> Barry1080
 
-UPDATED=$(cat spy Saul720 Saul1080 Saul2160 Halo720 Halo1080 Halo2160 Legacies1080 Legacies720 Moon720 Moon1080 Moon2160 Superman720 Superman1080 Barry720 Barry1080 | grep . -c)
+UPDATED=$(cat spy Saul720 Saul1080 Saul2160 Halo720 Halo1080 Halo2160 Legacies1080 Legacies720 Superman720 Superman1080 Barry720 Barry1080 | grep . -c)
 
 if [ $UPDATED != 0 ]; then
 
 IFS=$'\n'
-for i in $(cat Moon720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/720p/" --drive-server-side-across-configs ; done
-for i in $(cat Moon1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/1080p/" --drive-server-side-across-configs ; done
-for i in $(cat Moon2160 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Moon Knight/Season 1 [720-1080-2160 WEBRip x265 10bit PSA]/2160p/" --drive-server-side-across-configs ; done
 for i in $(cat Legacies720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (720p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Legacies1080 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Legacies/Legacies Season 4 (1080p x265 10bit WEBRip PSA)/"  --drive-server-side-across-configs ; done
 for i in $(cat Superman720 | uniq) ; do rclone --config rclone.conf move -P D1:Archive/Unsorted/"$i" D1:"Archive/Series/Superman and Lois/Season 2 [720p x265 10bit WEBRip PSA]/"  --drive-server-side-across-configs ; done
@@ -44,7 +38,7 @@ for i in $(cat spy | uniq) ; do rclone --config rclone.conf move -P D1:Archive/U
 
 
 
-rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080 Saul2160 Moon2160 Moon1080 Moon720 Superman720 Superman1080 spy
+rm Legacies720 Legacies1080 Halo720 Halo1080 Halo2160 Saul720 Saul1080 Saul2160 Superman720 Superman1080 spy
 
 for i in $(cat list | grep .*\.txt) ; do rclone delete D1:"Archive/Unsorted/$i"; done
 
